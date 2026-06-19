@@ -20,6 +20,10 @@
             padding: 40px 20px;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         .container {
             max-width: 1100px;
             margin: 0 auto;
@@ -30,6 +34,19 @@
             padding: 20px 0;
             color: #6b4a34;
             font-size: 14px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .feature-list {
+            list-style: disc inside;
+            margin: 16px 0 0;
+            color: #5e4431;
+            line-height: 1.8;
         }
 
         /* 個人介紹區 */
@@ -383,17 +400,25 @@
             color: #7a5b45;
         }
 
-        @media (max-width: 1024px) {
+        @media (max-width: 1200px) {
             .container {
                 padding: 0 20px;
             }
 
             .intro-section {
-                padding: 45px 30px;
+                padding: 50px 30px;
+            }
+
+            .intro-content {
+                gap: 40px;
             }
 
             .gallery {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .photo-caption {
+                padding: 20px;
             }
 
             .detail-card {
@@ -402,6 +427,43 @@
 
             .detail-card .detail-image {
                 min-height: 200px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .intro-section {
+                padding: 45px 25px;
+            }
+
+            .intro-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .profile-photo {
+                width: 240px;
+                height: 240px;
+            }
+
+            .intro-text {
+                text-align: center;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .photo-container {
+                height: 240px;
+            }
+
+            .detail-card {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -414,24 +476,9 @@
                 padding: 35px 20px;
             }
 
-            .intro-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
             .profile-photo {
                 width: 220px;
                 height: 220px;
-            }
-
-            .intro-text {
-                text-align: center;
-            }
-
-            .intro-section p,
-            .photo-caption,
-            .top-nav {
-                text-align: center;
             }
 
             .top-nav {
@@ -456,17 +503,45 @@
                 height: 220px;
             }
 
-            .detail-card {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
             .detail-card .detail-image {
                 min-height: 200px;
             }
 
             .skills-grid {
                 grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 20px 12px;
+            }
+
+            .intro-section {
+                padding: 30px 16px;
+            }
+
+            .intro-section h1 {
+                font-size: 36px;
+            }
+
+            .gallery-title {
+                font-size: 28px;
+            }
+
+            .photo-container {
+                height: 180px;
+            }
+
+            .detail-section,
+            .skill-card,
+            .photo-item {
+                border-radius: 12px;
+            }
+
+            .top-nav a {
+                font-size: 13px;
+                padding: 8px 10px;
             }
         }
 
@@ -552,7 +627,6 @@
                     </ul>
                 </div>
             </div>
-        </div>
         </section>
 
         <!-- 照片展示區 -->
@@ -581,7 +655,7 @@
                     <img src="個人網頁.png" alt="個人介紹網頁作品" />
                 </div>
                 <div class="photo-caption">
-                <h3><a href="https://c114156229-lab.github.io/personal/" target="_blank">個人介紹網頁</a></h3>
+                    <h3><a href="https://c114156229-lab.github.io/personal/" target="_blank">個人介紹網頁</a></h3>
                     <div class="project-details">
                         <p><strong>製作動機：</strong>透過所學的<span class="highlight-text">課程內容與設計相關知識</span>，我希望能建立一個<span class="highlight-text">個人介紹網站</span>，將所學應用於實際作品中，並呈現自己的<span class="highlight-text">學習成果與設計能力</span>。</p>
                         <p><strong>使用工具：</strong>HTML、CSS、JavaScript。</p>
