@@ -73,8 +73,9 @@
         }
 
         .profile-photo {
-            width: 280px;
+            width: 100%;
             height: 280px;
+            aspect-ratio: 1 / 1;
             border-radius: 18px;
             overflow: hidden;
             background: #f6e4d4;
@@ -511,7 +512,6 @@
                 grid-template-columns: 1fr;
             }
         }
-
         @media (max-width: 480px) {
             body {
                 padding: 20px 12px;
@@ -542,40 +542,28 @@
             .top-nav a {
                 font-size: 13px;
                 padding: 8px 10px;
-            }
-        }
+            }@media (max-width: 768px) {
+    .intro-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 
-        @media (max-width: 480px) {
-            body {
-                padding: 20px 12px;
-            }
+    .profile-photo {
+        width: 100%;
+        max-width: 240px;
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
 
-            .intro-section {
-                padding: 30px 16px;
-            }
+    .intro-section h1 {
+        font-size: 34px;
+    }
 
-            .intro-section h1 {
-                font-size: 36px;
-            }
-
-            .gallery-title {
-                font-size: 28px;
-            }
-
-            .photo-container {
-                height: 180px;
-            }
-
-            .detail-section,
-            .skill-card,
-            .photo-item {
-                border-radius: 12px;
-            }
-
-            .top-nav a {
-                font-size: 13px;
-                padding: 8px 10px;
-            }
+    body {
+        padding: 20px 12px;
+    }
+}
+            
         }
     </style>
 </head>
