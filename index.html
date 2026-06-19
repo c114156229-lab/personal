@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人介紹 - My Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', '微軟雅黑', Arial, sans-serif;
+            font-size: 18px;
+            background: #f3ead8;
+            color: #4f3828;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .site-footer {
+            text-align: center;
+            padding: 20px 0;
+            color: #6b4a34;
+            font-size: 14px;
+        }
+
+        /* 個人介紹區 */
+        .intro-section {
+            background: #fff4eb;
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin-bottom: 50px;
+            box-shadow: 0 18px 60px rgba(123, 80, 54, 0.18);
+            border: 1px solid rgba(171, 124, 86, 0.18);
+        }
+
+        .intro-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .profile-photo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-photo {
+            width: 280px;
+            height: 280px;
+            border-radius: 18px;
+            overflow: hidden;
+            background: #f6e4d4;
+            border: 1px solid rgba(171, 124, 86, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9c7d61;
+            font-size: 14px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .intro-text {
+            text-align: left;
+        }
+
+        .top-nav {
+            display: flex;
+            justify-content: flex-end;
+            gap: 25px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .top-nav a {
+            color: #6b4a34;
+            text-decoration: none;
+            font-size: 17px;
+            padding: 10px 18px;
+            border-radius: 999px;
+            transition: all 0.25s ease;
+            background: rgba(255, 250, 244, 0.88);
+            border: 1px solid rgba(171, 124, 86, 0.2);
+        }
+
+        .top-nav a:hover {
+            background: rgba(223, 185, 150, 0.9);
+            color: #3f2a19;
+        }
+
+        .intro-section h1 {
+            font-size: 54px;
+            color: #4b3422;
+            margin-bottom: 15px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        .intro-section p {
+            font-size: 19px;
+            color: #5e4431;
+            line-height: 1.85;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .highlight-text {
+            color: #b16932;
+            font-weight: 600;
+        }
+
+        .intro-section .subtitle {
+            font-size: 16px;
+            color: #9a7a5e;
+            font-style: italic;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* 照片展示區 */
+        .gallery-title {
+            text-align: center;
+            color: #5e4431;
+            font-size: 40px;
+            margin-bottom: 40px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .gallery-subtitle {
+            text-align: center;
+            color: #7a6a55;
+            font-size: 18px;
+            margin-bottom: 30px;
+            font-weight: 400;
+            margin-top: -20px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .photo-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 18px;
+            background: #fff5ed;
+            box-shadow: 0 16px 45px rgba(123, 80, 54, 0.18);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(171, 124, 86, 0.18);
+        }
+
+        .photo-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 22px 60px rgba(123, 80, 54, 0.28);
+        }
+
+        .photo-container {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            background: #f4e3d2;
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .photo-item:hover .photo-container img {
+            transform: scale(1.05);
+        }
+
+        .photo-caption {
+            padding: 24px;
+            text-align: center;
+        }
+
+        .photo-caption h3 {
+            color: #4b3422;
+            margin-bottom: 12px;
+            font-size: 22px;
+        }
+
+        .photo-caption p,
+        .project-details p {
+            color: #6d4b33;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .project-details p strong {
+            color: #4b3422;
+        }
+
+        .project-details {
+            text-align: left;
+            padding-top: 5px;
+        }
+
+        .project-keypoints {
+            margin: 12px 0 0;
+            padding-left: 20px;
+            color: #5e4431;
+            font-size: 15px;
+        }
+
+        .project-keypoints li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .project-keypoints li strong {
+            color: #b16932;
+            font-weight: 700;
+            margin-right: 6px;
+        }
+
+        .photo-caption h3 a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s ease;
+            cursor: pointer;
+        }
+
+        .photo-caption h3 a:hover {
+            color: #b16932;
+        }
+
+        /* 預設圖片樣式 */
+        .placeholder-image {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f6e2cf 0%, #efd3b8 100%);
+            color: #8d6f53;
+            font-size: 14px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* 技能區 */
+        .skills-section {
+            background: #fff3e8;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 18px 50px rgba(123, 80, 54, 0.18);
+            border: 1px solid rgba(171, 124, 86, 0.18);
+        }
+
+        .skills-section h2 {
+            font-size: 28px;
+            color: #5b3d2b;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: #f8e8d6;
+            padding: 28px;
+            border-radius: 16px;
+            color: #5d3f2c;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(171, 124, 86, 0.16);
+        }
+
+        .skill-card a {
+            display: block;
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            border-color: #d0ccc6;
+        }
+
+        .detail-section {
+            margin-top: 40px;
+            padding: 30px;
+            background: #fff2e7;
+            border-radius: 20px;
+            box-shadow: 0 18px 50px rgba(123, 80, 54, 0.18);
+            border: 1px solid rgba(171, 124, 86, 0.18);
+        }
+
+        .detail-section h3 {
+            font-size: 28px;
+            color: #5b3d2b;
+            margin-bottom: 20px;
+        }
+
+        .detail-card {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 25px;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .detail-card .detail-image {
+            min-height: 220px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f0f0f0 0%, #e5e5e5 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 16px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .detail-card .detail-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .detail-card .detail-text p {
+            margin-bottom: 12px;
+            text-align: left;
+        }
+
+        .detail-card .detail-text p strong {
+            color: #5b3d2b;
+        }
+
+        .skill-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #5b3d2b;
+        }
+
+        .skill-card p {
+            font-size: 15px;
+            color: #7a5b45;
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .intro-section {
+                padding: 45px 30px;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .detail-card {
+                grid-template-columns: 1fr;
+            }
+
+            .detail-card .detail-image {
+                min-height: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .intro-section h1 {
+                font-size: 40px;
+            }
+
+            .intro-section {
+                padding: 35px 20px;
+            }
+
+            .intro-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .profile-photo {
+                width: 220px;
+                height: 220px;
+            }
+
+            .intro-text {
+                text-align: center;
+            }
+
+            .intro-section p,
+            .photo-caption,
+            .top-nav {
+                text-align: center;
+            }
+
+            .top-nav {
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .top-nav a {
+                padding: 10px 12px;
+                font-size: 15px;
+            }
+
+            .gallery-title {
+                font-size: 34px;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .photo-container {
+                height: 220px;
+            }
+
+            .detail-card {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .detail-card .detail-image {
+                min-height: 200px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 20px 12px;
+            }
+
+            .intro-section {
+                padding: 30px 16px;
+            }
+
+            .intro-section h1 {
+                font-size: 36px;
+            }
+
+            .gallery-title {
+                font-size: 28px;
+            }
+
+            .photo-container {
+                height: 180px;
+            }
+
+            .detail-section,
+            .skill-card,
+            .photo-item {
+                border-radius: 12px;
+            }
+
+            .top-nav a {
+                font-size: 13px;
+                padding: 8px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 導覽列 -->
+        <nav class="top-nav">
+            <a href="#about">自傳</a>
+            <a href="#works">作品</a>
+            <a href="#experience">學習經歷</a>
+        </nav>
+
+        <!-- 個人介紹 -->
+        <section id="about" class="intro-section section-panel">
+            <div class="intro-content">
+                <!-- 個人照片 -->
+                <div class="profile-photo-container">
+                    <div class="profile-photo">
+                        <img src="個人照.jpg" alt="個人照" />
+                    </div>
+                </div>
+
+                <!-- 介紹文字 -->
+                <div class="intro-text">
+                    <h1>個人介紹區</h1>
+                    <p class="subtitle"></p>
+
+                    <h3>個人背景</h3>
+                    <p>
+我是謝宜庭，來自高雄，目前就讀於國立高雄科技大學智慧商務系。平時喜歡<span class="highlight-text">觀察生活中的大小事</span>，且對<span class="highlight-text">影音剪輯和網頁視覺設計</span>特別感興趣，也喜歡透過<span class="highlight-text">照片記錄當下的心情</span>。
+                    </p>
+
+                    <h3>個人特質</h3>
+                    <p>
+                        我是一個<span class="highlight-text">認真負責任</span>的人，樂於<span class="highlight-text">學習新事物、接受各種挑戰</span>，平時重視<span class="highlight-text">團隊合作</span>，能與同學互相配合完成任務。希望透過<span class="highlight-text">不斷的學習與累積經驗</span>，提升自己的能力，為團隊貢獻一份力量。
+                    </p>
+                    <ul class="feature-list">
+                        <li><span class="highlight-text">創意思考與視覺表達能力</span></li>
+                        <li><span class="highlight-text">願意嘗試不同設計風格</span></li>
+                        <li><span class="highlight-text">學習能力強</span>，能快速上手新工具</li>
+                        <li><span class="highlight-text">具備基本專案規劃與時間管理能力</span></li>
+                        <li><span class="highlight-text">能與團隊合作完成設計任務</span></li>
+                    </ul>
+                    <br>
+                    <h3>興趣與技能</h3>
+                    <ul class="feature-list">
+                        <li><span class="highlight-text">文案撰寫</span>：曾擔任網管一職，負責貼文文案撰寫。</li>
+                        <li><span class="highlight-text">網頁版面設計</span>：從課堂中接觸到網頁設計，逐漸對版面配置與視覺效果產生興趣。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </section>
+
+        <!-- 照片展示區 -->
+        <section id="works" class="section-panel">
+            <h2 class="gallery-title">作品區</h2><br><h3 class="gallery-subtitle">(點選下面標題即可各進入網站)</h3>
+            <div class="gallery">
+
+            <!-- 照片3 -->
+            <div class="photo-item">
+                <div class="photo-container">
+                    <img src="網頁作品.png" alt="網頁設計練習作品" />
+                </div>
+                <div class="photo-caption">
+                    <h3><a href="https://c114156229-lab.github.io/-/" target="_blank">網頁設計練習</a></h3>
+                    <div class="project-details">
+                        <p><strong>製作動機：</strong>希望建立一個<span class="highlight-text">簡潔、可讀性高的展示頁面</span>，利用<span class="highlight-text">熟悉且生活化的動畫主題</span>，培養將資訊整理並呈現在網路上的能力。</p>
+                        <p><strong>使用工具：</strong>HTML、CSS、JavaScript。</p>
+                        <p><strong>學到什麼：</strong>建立一個以我們這一家為主題的介紹平台、強化基本網頁設計與版面配置的實作能力。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 照片4 -->
+            <div class="photo-item">
+                <div class="photo-container">
+                    <img src="個人網頁.png" alt="個人介紹網頁作品" />
+                </div>
+                <div class="photo-caption">
+                    <h3>個人介紹網頁</h3>
+                    <div class="project-details">
+                        <p><strong>製作動機：</strong>透過所學的<span class="highlight-text">課程內容與設計相關知識</span>，我希望能建立一個<span class="highlight-text">個人介紹網站</span>，將所學應用於實際作品中，並呈現自己的<span class="highlight-text">學習成果與設計能力</span>。</p>
+                        <p><strong>使用工具：</strong>HTML、CSS、JavaScript。</p>
+                        <p><strong>學到什麼：</strong>透過製作個人介紹網站，精進網頁排版設計能力，並將課堂所學實際應用於作品中。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+
+        <!-- 學習經歷區 -->
+        <section class="skills-section section-panel" id="experience">
+            <h2>學習經歷</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <a href="#club-detail">
+                        <h3>🤝 社團</h3>
+                        <p>高中參與自治團體，曾負責活動規劃、貼文排版、廠商聯繫。</p>
+                    </a>
+                </div>
+                <div class="skill-card">
+                    <a href="#certificate-detail">
+                        <h3>🎯 證照</h3>
+                        <p>取得電腦軟體應用乙級證照及軟體應用丙級證照。</p>
+                    </a>
+                </div>
+            </div>
+
+            <div id="club-detail" class="detail-section">
+                <h3>社團心得與作品</h3>
+                <div class="detail-card">
+                    <div class="detail-image">
+                        <img src="一屆.jpg" alt="學聯會一屆活動照片" />
+                    </div>
+                    <div class="detail-text">
+                        <p><strong>一屆團體照</strong></p>
+                        <p><strong>心得：</strong>在參與學聯會一屆時，我學習到<span class="highlight-text">團隊合作與溝通協調的重要性</span>，並擔任<span class="highlight-text">網管一職</span>，負責<span class="highlight-text">社群貼文的排版與發布</span>。透過參與各項活動的籌備與執行，我深刻體會到團隊的成功不僅來自於成果展現時的光鮮亮麗，更是每位成員在背後投入的心力與細心規劃。這段經驗不僅提升了我的<span class="highlight-text">抗壓性與執行能力</span>，也讓我更加理解<span class="highlight-text">合作與分工</span>的重要價值。</p>
+                        <p><strong>關鍵任務：</strong><span class="highlight-text">各項活動的籌備與執行</span>。</p>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-image">
+                        <img src="網管.jpg" alt="擔任網管時的活動照片" />
+                    </div>
+                    <div class="detail-text">
+                        <p><strong>網管幹介照</strong></p>
+                        <p><strong>心得：</strong>在擔任網管期間，我負責<span class="highlight-text">社群媒體貼文的文案撰寫與內容發想</span>，實際體會到文字在資訊傳達中的重要性。透過這段經驗，我慢慢學會如何整理內容、讓文字發揮力量，也懂得怎麼<span class="highlight-text">讓貼文變得更吸引人。</span>這些經驗對我未來的學習與發展都有良好的幫助。</p>
+                        <p><strong>關鍵任務：</strong><span class="highlight-text">社群貼文的排版與發布</span>。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="certificate-detail" class="detail-section">
+                <h3>證照心得與展示</h3>
+                <div class="detail-card">
+                    <div class="detail-image">
+                        <img src="丙.png?v=1" alt="丙級技術士證照" />
+                    </div>
+                    <div class="detail-text">
+                        <p><strong>電腦軟體丙級技術士證照</strong></p>
+                        <p><strong>心得：</strong>在高二時考取丙級技術士證照。在準備過程中，我學習到<span class="highlight-text">基本的文書處理與軟體操作技巧</span>，並透過<span class="highlight-text">反覆練習增加熟悉度</span>，也讓我從完全不會的新手，逐步成功考取證照。</p>
+                        <p><strong>使用工具：</strong>Microsoft Word。</p>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-image">
+                        <img src="乙.png?v=1" alt="乙級技術士證照" />
+                    </div>
+                    <div class="detail-text">
+                        <p><strong>電腦軟體乙級技術士證照</strong></p>
+                        <p><strong>心得：</strong>在高三時考取乙級技術士證照。在準備過程中，不僅增進了我的<span class="highlight-text">文書處理與資料分析能力</span>，也培養了<span class="highlight-text">自主學習與問題解決的能力</span>，也能為未來的求學之路奠定基礎。</p>
+                        <p><strong>使用工具：</strong>Microsoft Word、Microsoft Excel、資料庫查詢。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script>
+        const sections = document.querySelectorAll('.section-panel');
+        const detailToPanelMap = {
+            'club-detail': 'experience',
+            'certificate-detail': 'experience'
+        };
+
+        function showSection(id) {
+            if (!id) id = 'about';
+            const panelId = detailToPanelMap[id] || id;
+            sections.forEach(section => {
+                section.style.display = section.id === panelId ? 'block' : 'none';
+            });
+            if (detailToPanelMap[id]) {
+                setTimeout(() => {
+                    const target = document.getElementById(id);
+                    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 50);
+            }
+        }
+
+        window.addEventListener('hashchange', () => showSection(window.location.hash.slice(1)));
+        showSection(window.location.hash.slice(1));
+    </script>
+    <footer class="site-footer">
+        <div class="container">
+            <p>© 2026 謝宜庭 版權所有。</p>
+        </div>
+    </footer>
+</body>
+</html>
